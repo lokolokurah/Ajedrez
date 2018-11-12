@@ -52,7 +52,6 @@ public class Posicion
     public Posicion(int fila, char columna)
     {	
         //Comprobamos validez de datos
-        //Cambiada a forma más simplificada llamando a metodos get y set
         setFila(fila);
         setColumna(columna);                            
     }
@@ -63,5 +62,28 @@ public class Posicion
     {
         this.fila=copiaPosicion.fila;
         this.columna=copiaPosicion.columna;
+    }
+    
+    //Creado metodo equals 
+    @Override 
+    public boolean equals (Object obj) 
+    {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Posicion other = (Posicion) obj;
+        if (this.fila != other.fila) {
+            return false;
+        }
+        if (this.columna != other.columna) {
+            return false;
+        }
+        return true;
     }
 }
