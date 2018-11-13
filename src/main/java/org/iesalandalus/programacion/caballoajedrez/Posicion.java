@@ -16,7 +16,7 @@ public class Posicion
     //Declaración de Atributos
     private int fila;
     private char columna;
-    
+
     
     //Creados geters y seters
     public int getFila() {
