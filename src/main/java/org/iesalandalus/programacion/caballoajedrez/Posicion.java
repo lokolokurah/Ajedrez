@@ -62,6 +62,14 @@ public class Posicion
     
     
     //Creado metodo equals 
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 17 * hash + this.fila;
+        hash = 17 * hash + this.columna;
+        return hash;
+    }
+    
     @Override 
     public boolean equals (Object obj) 
     {

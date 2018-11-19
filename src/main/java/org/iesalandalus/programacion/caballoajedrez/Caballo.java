@@ -5,6 +5,8 @@
  */
 package org.iesalandalus.programacion.caballoajedrez;
 
+import java.util.Objects;
+
 import javax.naming.OperationNotSupportedException;
 
 /**
@@ -185,4 +187,33 @@ public class Caballo
 		}
      }
      
+     //Creamos el método equals para comparar la igualdad de objetos de la clase. 
+     @Override
+     public int hashCode() {
+        int hash = 5;
+        hash = 79 * hash + Objects.hashCode(this.color);
+        hash = 79 * hash + Objects.hashCode(this.posicion);
+        return hash;
+    }
+     
+     @Override
+     public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Caballo other = (Caballo) obj;
+        if (this.color != other.color) {
+            return false;
+        }
+        if (!Objects.equals(this.posicion, other.posicion)) {
+            return false;
+        }
+        return true;
+    }
 }
