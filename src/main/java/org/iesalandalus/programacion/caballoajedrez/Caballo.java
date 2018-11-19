@@ -11,6 +11,26 @@ package org.iesalandalus.programacion.caballoajedrez;
  */
 public class Caballo 
 {
-    private Color colorCaballo;
-    private Posicion posicionCaballo;
+    private Color color;
+    private Posicion posicion;
+
+    //Creados geters y seters
+    public Color getColorCaballo() {
+        return color;
+    }
+
+    public void setColorCaballo(Color colorCaballo) {
+        this.color = colorCaballo;
+    }
+
+    public Posicion getPosicionCaballo() {
+        return posicion;
+    }
+
+    public void setPosicionCaballo(Posicion posicionCaballo) {
+        this.posicion = posicionCaballo;
+    }
+    
+    
+    
 }
