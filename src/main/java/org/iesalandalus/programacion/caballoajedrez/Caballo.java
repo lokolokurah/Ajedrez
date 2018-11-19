@@ -14,6 +14,14 @@ public class Caballo
     private Color color;
     private Posicion posicion;
 
+      //Creamos un constructor por defecto para la clase Caballo que cree un caballo negro en la posición '8b'
+    public Caballo()
+    {
+        color = Color.NEGRO;
+        posicion = new Posicion(8,'b');
+    }
+    
+    
     //Creados geters y seters
     public Color getColorCaballo() {
         return color;
@@ -31,11 +39,5 @@ public class Caballo
         this.posicion = posicionCaballo;
     }
     
-    //Creamos un constructor por defecto para la clase Caballo que cree un caballo negro en la posición '8b'
-    public Caballo()
-    {
-        color = Color.NEGRO;
-        posicion = new Posicion(8,'b');
-    }
     
 }
