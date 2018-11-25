@@ -17,13 +17,13 @@ public class Caballo
 {
     private Color color;
     private Posicion posicion;
-    private static final String ERROR_MOVIMIENTO = "Movimiento no permitido: ";
+    private static final String ERROR_MOVIMIENTO = " Movimiento no permitido: ";
     
     
       //Creamos un constructor por defecto para la clase Caballo que cree un caballo negro en la posición '8b'
     public Caballo()
     {
-        color = Color.NEGRO;
+        this.color = Color.NEGRO;
         posicion = new Posicion(8,'b');
     }
     
@@ -86,28 +86,35 @@ public class Caballo
      
      
     //Creados geters y seters
-    public Color getColorCaballo() {
+
+    public Color getColor() {
         return color;
     }
 
-    public void setColorCaballo(Color colorCaballo) {
-        this.color = colorCaballo;
+    public void setColor(Color color) {
+         if (color==null)
+            throw new IllegalArgumentException("ERROR: Argumento nulo");
+        this.color = color;
     }
 
-    public Posicion getPosicionCaballo() {
+    public Posicion getPosicion() {
         return posicion;
     }
 
-    public void setPosicionCaballo(Posicion posicionCaballo) {
-        this.posicion = posicionCaballo;
+    public void setPosicion(Posicion posicion) {
+        if (posicion==null)
+            throw new IllegalArgumentException("ERROR: Argumento nulo");
+        this.posicion = posicion;
     }
+    
+    
     
     
     /*Crea el método mover que dependiendo del movimiento modificará la
     posición del mismo o si no puede realizar dicho movimiento debe lanzar una
     excepción del tipo OperationNotSupportedException con un mensaje adecuado
     y no modificará la posición del caballo.*/
-     public void moverCaballo(Direccion direccion, int x, char y) throws OperationNotSupportedException 
+     public void moverCaballo(Direccion direccion) throws OperationNotSupportedException 
      { 
         if (direccion == null) {
 			throw new IllegalArgumentException(" La dirección no puede ser nula. ");
@@ -122,7 +129,7 @@ public class Caballo
                                         posicion.setFila(posicion.getFila()+2);
                                         posicion.setColumna((char) (posicion.getColumna()+1));
 				} catch (IllegalArgumentException e) {
-					throw new OperationNotSupportedException(ERROR_MOVIMIENTO);
+					throw new OperationNotSupportedException(ERROR_MOVIMIENTO + e.getMessage());
 				}
 				break;
 			case ARRIBA_IZQUIERDA:
@@ -130,7 +137,7 @@ public class Caballo
 					posicion.setFila(posicion.getFila()+2);
                                         posicion.setColumna((char) (posicion.getColumna()-1));
 				} catch (IllegalArgumentException e) {
-					throw new OperationNotSupportedException(ERROR_MOVIMIENTO);
+					throw new OperationNotSupportedException(ERROR_MOVIMIENTO + e.getMessage());
 				}
 				break;
 			case DERECHA_ARRIBA:
@@ -138,7 +145,7 @@ public class Caballo
                                         posicion.setColumna((char) (posicion.getColumna()+2));
                                         posicion.setFila(posicion.getFila()+1);
 				} catch (IllegalArgumentException e) {
-					throw new OperationNotSupportedException(ERROR_MOVIMIENTO);
+					throw new OperationNotSupportedException(ERROR_MOVIMIENTO + e.getMessage());
 				}
 				break;
                         case DERECHA_ABAJO:
@@ -146,7 +153,7 @@ public class Caballo
 					posicion.setColumna((char) (posicion.getColumna()+2));
                                         posicion.setFila(posicion.getFila()-1);
 				} catch (IllegalArgumentException e) {
-					throw new OperationNotSupportedException(ERROR_MOVIMIENTO);
+					throw new OperationNotSupportedException(ERROR_MOVIMIENTO + e.getMessage());
 				}
 				break;
 			case IZQUIERDA_ARRIBA:
@@ -154,7 +161,7 @@ public class Caballo
 					posicion.setColumna((char) (posicion.getColumna()-2));
                                         posicion.setFila(posicion.getFila()+1);
 				} catch (IllegalArgumentException e) {
-					throw new OperationNotSupportedException(ERROR_MOVIMIENTO);
+					throw new OperationNotSupportedException(ERROR_MOVIMIENTO + e.getMessage());
 				}
 				break;
                         case IZQUIERDA_ABAJO:
@@ -162,7 +169,7 @@ public class Caballo
 					posicion.setColumna((char) (posicion.getColumna()-2));
                                         posicion.setFila(posicion.getFila()-1);
 				} catch (IllegalArgumentException e) {
-					throw new OperationNotSupportedException(ERROR_MOVIMIENTO);
+					throw new OperationNotSupportedException(ERROR_MOVIMIENTO + e.getMessage());
 				}
 				break;
                         case ABAJO_IZQUIERDA:
@@ -170,7 +177,7 @@ public class Caballo
 					posicion.setFila(posicion.getFila()-2);
                                         posicion.setColumna((char) (posicion.getColumna()-1));
 				} catch (IllegalArgumentException e) {
-					throw new OperationNotSupportedException(ERROR_MOVIMIENTO);
+					throw new OperationNotSupportedException(ERROR_MOVIMIENTO + e.getMessage());
 				}
 				break;
                         case ABAJO_DERECHA:
@@ -178,7 +185,7 @@ public class Caballo
 					posicion.setFila(posicion.getFila()-2);
                                         posicion.setColumna((char) (posicion.getColumna()+1));;
 				} catch (IllegalArgumentException e) {
-					throw new OperationNotSupportedException(ERROR_MOVIMIENTO);
+					throw new OperationNotSupportedException(ERROR_MOVIMIENTO + e.getMessage());
 				}
 				break;
                                 
